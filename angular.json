@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "hsq-gate-qr:build:production"
+              "buildTarget": "hsq-gate-qr:build:production"
             },
             "development": {
-              "browserTarget": "hsq-gate-qr:build:development"
+              "buildTarget": "hsq-gate-qr:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hsq-gate-qr:build"
+            "buildTarget": "hsq-gate-qr:build"
           }
         },
         "test": {
