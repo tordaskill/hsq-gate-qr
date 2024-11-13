@@ -1,19 +1,40 @@
 <section>
-  <span class="title">Visit Details</span>
-  <p>
+  <div class="title">Visit Details</div>
+    
+  <img src="assets/flags.png" alt="Change Language"    (click)="showCzech()" class="flags"/>
+
+  <p *ngIf="czech==false">
     Please fill in the following information to generate a QR code for your
     visit. You can download the QR code and display it at the entrance of the
     building.<br /><br />
     You can type the data manually at the entrance terminal without the QR code.
   </p>
+
+  <p *ngIf="czech==true">
+  Prosím, vyplňte následující informace pro vygenerování QR kódu pro vaši návštěvu. QR kód si můžete stáhnout a zobrazit při vstupu do budovy.
+  <br /><br />
+  Data můžete na vstupním terminálu zadat i ručně, pokud nemáte QR kód.
+</p>
+
   <div class="form-group" (change)="asignValues()">
     <input
       type="text"
       class="form-control"
+      *ngIf="czech==false"
       id="name"
       placeholder="Full Name"
       [(ngModel)]="visitToSave.name"
     />
+    <input
+    type="text"
+    class="form-control"
+    *ngIf="czech==true"
+    id="name"
+    placeholder="Vaše celé jméno"
+    [(ngModel)]="visitToSave.name"
+  />
+
+
     <input
       type="email"
       class="form-control"
@@ -25,16 +46,49 @@
       type="text"
       class="form-control"
       id="companyName"
-      placeholder="Company Name"
+      *ngIf="czech==true"
+      placeholder="Název společnosti"
       [(ngModel)]="visitToSave.companyName"
     />
+    <input
+    type="text"
+    class="form-control"
+    id="companyName"
+    *ngIf="czech==false"
+    placeholder="Company Name"
+    [(ngModel)]="visitToSave.companyName"
+  />
+
+
     <input
       type="text"
       class="form-control"
       id="host"
+      *ngIf="czech==false"
       placeholder="Contact Name"
       [(ngModel)]="visitToSave.host"
     />
+
+    <input
+      type="text"
+      class="form-control"
+      id="host"
+      *ngIf="czech==true"
+      placeholder="Jméno zástupce Husqvarny"
+      [(ngModel)]="visitToSave.host"
+    />
+
+  </div>
+  <div>
+    <button
+    class="btn btn-primary btn-lg"
+    type="submit"
+  
+    (click)="onCodeChange($event)"
+  
+  >
+    Generate
+  </button>
   </div>
   <qrcode
     @fadeInOut

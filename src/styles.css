@@ -115,12 +115,14 @@ section {
   flex-direction: column;
   justify-content: flex-start;
   gap: 10px;
-  min-height: 100vh;
+  min-height: 100vh; 
 }
+
 p {
   width: 350px;
   color: var(--gray-color);
 }
+
 .form-group {
   width: 350px;
   display: flex;

@@ -13,6 +13,8 @@ export class AppComponent {
     companyName: '',
     host: '',
   };
+  
+  czech = false;
   qrdata = '';
   url: SafeUrl = '';
 
@@ -24,4 +26,10 @@ export class AppComponent {
     const valuesArray = Object.values(this.visitToSave);
     this.qrdata = JSON.stringify(valuesArray);
   }
+  showCzech() {
+    this.czech = !this.czech;
+    
+  }
+
+
 }
