@@ -1,7 +1,7 @@
 <section>
   <div class="title">Visit details</div>
-    
-  <img src="assets/flags.png" alt="Change Language"    (click)="showCzech()" class="flags"/>
+
+  <img src="assets/flags.png" alt="Change Language" (click)="showCzech()" class="flags" />
 
   <p *ngIf="czech==false">
     Please fill in the following information to generate a QR code for your
@@ -11,107 +11,53 @@
   </p>
 
   <p *ngIf="czech==true">
-  Prosím, vyplňte následující informace pro vygenerování QR kódu pro vaši návštěvu. QR kód si můžete stáhnout a zobrazit při vstupu do budovy.
-  <br /><br />
-  Data můžete na vstupním terminálu zadat i ručně, pokud nemáte QR kód.
-</p>
+    Prosím, vyplňte následující informace pro vygenerování QR kódu pro vaši návštěvu. QR kód si můžete stáhnout a
+    zobrazit při vstupu do budovy.
+    <br /><br />
+    Data můžete na vstupním terminálu zadat i ručně, pokud nemáte QR kód.
+  </p>
 
   <div class="form-group" (change)="asignValues()">
-    <input
-      type="text"
-      class="form-control"
-      *ngIf="czech==false"
-      id="name"
-      placeholder="Full Name"
-      [(ngModel)]="visitToSave.name"
-    />
-    <input
-    type="text"
-    class="form-control"
-    *ngIf="czech==true"
-    id="name"
-    placeholder="Vaše celé jméno"
-    [(ngModel)]="visitToSave.name"
-  />
+    <input type="text" class="form-control" *ngIf="czech==false" id="name" placeholder="Full Name"
+      [(ngModel)]="visitToSave.name" />
+    <input type="text" class="form-control" *ngIf="czech==true" id="name" placeholder="Vaše celé jméno"
+      [(ngModel)]="visitToSave.name" />
 
 
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      placeholder="Email"
-      [(ngModel)]="visitToSave.email"
-    />
-    <input
-      type="text"
-      class="form-control"
-      id="companyName"
-      *ngIf="czech==true"
-      placeholder="Název společnosti"
-      [(ngModel)]="visitToSave.companyName"
-    />
-    <input
-    type="text"
-    class="form-control"
-    id="companyName"
-    *ngIf="czech==false"
-    placeholder="Company Name"
-    [(ngModel)]="visitToSave.companyName"
-  />
+    <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="visitToSave.email" />
+    <input type="text" class="form-control" id="companyName" *ngIf="czech==true" placeholder="Název společnosti"
+      [(ngModel)]="visitToSave.companyName" />
+    <input type="text" class="form-control" id="companyName" *ngIf="czech==false" placeholder="Company Name"
+      [(ngModel)]="visitToSave.companyName" />
 
 
-    <input
-      type="text"
-      class="form-control"
-      id="host"
-      *ngIf="czech==false"
-      placeholder="Contact Name"
-      [(ngModel)]="visitToSave.host"
-    />
+    <input type="text" class="form-control" id="host" *ngIf="czech==false" placeholder="Contact Name"
+      [(ngModel)]="visitToSave.host" />
 
-    <input
-      type="text"
-      class="form-control"
-      id="host"
-      *ngIf="czech==true"
-      placeholder="Jméno zástupce Husqvarny"
-      [(ngModel)]="visitToSave.host"
-    />
+    <input type="text" class="form-control" id="host" *ngIf="czech==true" placeholder="Jméno zástupce Husqvarny"
+      [(ngModel)]="visitToSave.host" />
 
   </div>
   <div>
-    <button
-    class="btn btn-primary btn-lg"
-    type="submit"
-  
-    (click)="onCodeChange($event)"
-  
-  >
-    Generate
-  </button>
+    <button class="btn btn-primary btn-lg" type="submit" (click)="onCodeChange($event)">
+      Generate
+    </button>
+    <button class="btn btn-primary btn-lg" type="submit" (click)="transferFromReadable('Michal Tepla2rec1ek')">
+      hexxxxxx
+    </button>
+
+
   </div>
-  <qrcode
-    @fadeInOut
-    *ngIf="
+  <qrcode @fadeInOut *ngIf="
       visitToSave.name &&
       visitToSave.email &&
       visitToSave.companyName &&
       visitToSave.host
-    "
-    (qrCodeURL)="onCodeChange($event)"
-    [qrdata]="qrdata"
-    [width]="256"
-  ></qrcode>
-  <a
-    *ngIf="
+    " (qrCodeURL)="onCodeChange($event)" [qrdata]="qrdata" [width]="256"></qrcode>
+  <a *ngIf="
       visitToSave.name &&
       visitToSave.email &&
       visitToSave.companyName &&
       visitToSave.host
-    "
-    class="btn btn-primary"
-    [href]="url"
-    download="QR code"
-    >Download QR code</a
-  >
+    " class="btn btn-primary" [href]="url" download="QR code">Download QR code</a>
 </section>
