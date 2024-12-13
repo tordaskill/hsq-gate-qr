@@ -5,3 +5,9 @@
 cursor: pointer;
   }
  
+  .block-container {
+    padding-top: 80px;
+    display: flex; /* Use flexbox to align the inner divs horizontally */
+    flex-direction: column; /* Stack the inner divs vertically */
+    align-items: center; /* Center the inner divs horizontally */
+  }
