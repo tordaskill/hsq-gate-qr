@@ -40,7 +40,9 @@
   </div>
   <div>
 
-
+    <button class="btn btn-primary btn-lg" type="submit" (click)="onCodeChange($event)">
+      Generate code
+    </button>
   </div>
   <qrcode @fadeInOut *ngIf="
       visitToSave.name &&
@@ -55,8 +57,6 @@
       visitToSave.host
     " class="btn btn-primary" [href]="url" download="QR code">Download QR code</a>
 
-<button class="btn btn-primary btn-lg" type="submit" (click)="onCodeChange($event)">
-  Generate code
-</button>
+
 
 </div>
