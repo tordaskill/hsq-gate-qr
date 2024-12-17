@@ -11,3 +11,6 @@ cursor: pointer;
     flex-direction: column; /* Stack the inner divs vertically */
     align-items: center; /* Center the inner divs horizontally */
   }
+  .red {
+color: red;
+  }

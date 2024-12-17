@@ -18,24 +18,30 @@
   </p>
 
   <div class="form-group" (change)="asignValues()">
+    <div *ngIf="this.visitToSave.name.length===40" class="red">Max.40 characters!</div>
     <input type="text" class="form-control"  *ngIf="czech==false" id="name" placeholder="Full Name"
-      [(ngModel)]="visitToSave.name" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)"/>
+      [(ngModel)]="visitToSave.name" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)" maxlength="40" />
+     
     <input type="text" class="form-control" *ngIf="czech==true" id="name" placeholder="Vaše celé jméno"
-      [(ngModel)]="visitToSave.name" (ngModelChange) ="hideQrCode()"  (qrCodeURL)="onCodeChange($event)"/>
+      [(ngModel)]="visitToSave.name" (ngModelChange) ="hideQrCode()"  (qrCodeURL)="onCodeChange($event)" maxlength="40"/>
+
+      <div *ngIf="this.visitToSave.email.length===40" class="red">Max.40 characters!</div>
+
+    <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="visitToSave.email" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)" maxlength="40"/>
 
 
-    <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="visitToSave.email" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)"/>
+    <div *ngIf="this.visitToSave.companyName.length===40" class="red">Max.40 characters!</div>
     <input type="text" class="form-control" id="companyName" *ngIf="czech==true" placeholder="Název společnosti"
-      [(ngModel)]="visitToSave.companyName" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)" />
+      [(ngModel)]="visitToSave.companyName" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)" maxlength="40" />
     <input type="text" class="form-control" id="companyName" *ngIf="czech==false" placeholder="Company Name"
-      [(ngModel)]="visitToSave.companyName" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)"/>
+      [(ngModel)]="visitToSave.companyName" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)" maxlength="40"/>
 
-
+      <div *ngIf="this.visitToSave.host.length===40" class="red">Max.40 characters!</div>
     <input type="text" class="form-control" id="host" *ngIf="czech==false" placeholder="Contact Name"
-      [(ngModel)]="visitToSave.host" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)"/>
+      [(ngModel)]="visitToSave.host" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)"  maxlength="40"/>
 
     <input type="text" class="form-control" id="host" *ngIf="czech==true" placeholder="Jméno zástupce Husqvarny"
-      [(ngModel)]="visitToSave.host" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)"/>
+      [(ngModel)]="visitToSave.host" (ngModelChange) ="hideQrCode()" (qrCodeURL)="onCodeChange($event)"  maxlength="40"/>
 
   </div>
   <div>
