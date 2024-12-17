@@ -15,6 +15,7 @@ export class AppComponent {
   };
   
   czech = false;
+  showCode = false;
   qrdata = '';
   url: SafeUrl = '';
 
@@ -34,6 +35,14 @@ export class AppComponent {
   }
   showCzech() {
     this.czech = !this.czech;
+    
+  }
+
+  showQrCode() {
+    this.showCode = true;
+  }
+  hideQrCode() {
+    this.showCode = false;
   }
   
 transferToReadable(value: string): string {
